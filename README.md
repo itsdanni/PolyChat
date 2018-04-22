@@ -14,23 +14,32 @@ Technologies used:
 
 ## Setting up the project
 
-### Install Postgres
+### Setting up Postgres and create the app database
 
-We use Postgres for our database management system. If you don't have postgres, please install and set it up.
+We use Postgres for our database management system. If you don't have Postgres, please install and set it up as follows.
 
-Here are some guides you can follow:
-- https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb
-- https://www.techrepublic.com/blog/diy-it-guy/diy-a-postgresql-database-server-setup-anyone-can-handle/
+1. Download and install Postgres for your OS:
+https://www.postgresql.org/download/
+2. Check version to make sure you've installed it:
+`psql --version`
+3. Start the Postgres server in the background:
+`postgres -D /usr/local/pgsql/data &`
+4. Login to the Postgres shell:
+`psql postgres`
+5. In `psql`, create the `stackchat` database, which will be used by this app:
+`CREATE DATABASE stackchat;`
+6. List databases and confirm that `stackchat` is listed:
+`\list`
+7. Exit `psql` :
+`\q` or `Ctrl+D`
 
-You probably don't need to follow these guides in depth; at minimum you just need to install Postgres, activate it, and ensure you can login to it.
-
-### Build and run the project
+### Building and running the app 
 
 * `npm install` or `yarn`
 * `npm run seed` or `yarn seed`
 * `npm start` or `yarn start`
 
-The seed command will create and set up the database for the app. You can confirm that the database exists by logging into the Postgres prompt and entering `\list`. You should see the the `stackchat` database in the results..
+The `seed` command will generate the database tables for the app and seed them with initial content. You can also use it to wipe the table contents if your chat app gets too cluttered.
 
 The `start` command will run both the `webpack` process (in watch mode) to build you client-side javascript files, and the Node process for your server with `nodemon`.
 
