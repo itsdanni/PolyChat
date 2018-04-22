@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Message, Author } = require('../db/models');
-const translator = require('./utils/translator')
+const translator = require('./utils/translator');
+const analyzer = require('./utils/analyzer');
 
 module.exports = router;
 
@@ -14,19 +15,42 @@ router.get('/', function (req, res, next) {
 let author;
 
 router.post('/', function (req, res, next) {
-  // need to adjust this english setting if for real
+  let authorName = req.body.name;
+  let inputMessage = req.body.content;
+  let targetLanguage = req.body.language;
+
   Author.findOrCreate({
     where: {
-      name: req.body.name || 'Cody'
+      name: authorName || 'Cody'
     }
   })
   .spread(name => {
-    author = name
-    return translator.translate(req.body.content, req.body.language)
+    author = name;
+    return translator.translate(inputMessage, targetLanguage);
   })
   .then(translatedText => {
-    console.log('request body: ', req.body)
-    let newMessage = { content: translatedText, name: req.body.name, channelId: req.body.channelId, language: req.body.language }
+    console.log("IN MESSAGE.JS: Translated text: ", translatedText);
+
+    // Prepare JSON for analytics
+    const documents = {
+        'documents': [
+            { 'id': '0', 'language': targetLanguage, 'text': translatedText }
+        ]
+    };
+    return analyzer.analyze('keyPhrases', documents)
+        .then(keyPhrases => {
+            console.log("IN MESSAGES.JS: Key phrases object: ", JSON.stringify(keyPhrases, null, '  '));
+            const keyPhrases_asString = keyPhrases.documents[0].keyPhrases.join(', ');
+            //console.log(`${translatedText}`)
+            //console.log(`Key phrases: ${keyPhrases_asString}`);
+            const message = `${translatedText} (KEY PHRASES: ${keyPhrases_asString})`;
+            return message;
+        })
+        // If analytics fails, then we want to just display translated text
+        .catch(err => translatedText);
+  })
+  .then(messageToSend => {
+    let newMessage = { content: messageToSend, name: req.body.name, channelId: req.body.channelId, language: req.body.language }
       const message = Message.build(newMessage);
       message.setAuthor(author, { save: false });
       return message.save()

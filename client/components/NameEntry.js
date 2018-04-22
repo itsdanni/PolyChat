@@ -8,11 +8,11 @@ function NameEntry (props) {
 
   return (
     <form className="form-inline">
-      <label htmlFor="name">Your name:</label>
+      <label htmlFor="name">My name:</label>
       <input
         type="text"
         name="name"
-        placeholder="Enter your name"
+        placeholder="what is your name"
         className="form-control"
         onChange={handleChange}
         value={name}

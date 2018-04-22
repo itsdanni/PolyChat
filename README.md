@@ -1,4 +1,4 @@
-# StackChat
+# PolyChat
 
 A chatty chat appy app.
 

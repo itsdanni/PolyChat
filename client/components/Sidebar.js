@@ -12,7 +12,7 @@ export default function Sidebar () {
           </i>
         </h3>
       </div>
-      <h5>Channels</h5>
+      <h5 className="channelHeader">Channels</h5>
       <ChannelList />
     </sidebar>
   );
