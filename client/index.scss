@@ -1,8 +1,8 @@
-$default-font-color: #AFB1B6;
-$default-background: #2B303B;
-$darker-background: #303641;
-$active-font-folor: #D4D5D8;
-$active-background: #5294E2;
+$default-font-color: white;
+$default-background: #00aa8d;
+$darker-background: #008975;
+$active-font-folor: white;
+$active-background: #008975;
 
 body {
   height: 100vh;
@@ -24,14 +24,13 @@ body {
         height: 53px;
         width: 220px;
         background-color: $darker-background;
-        border-bottom: 1px solid gray;
         color: white;
+        padding: 0.5rem;
 
         h3 {
           display: flex;
           align-items: center;
           margin: 0;
-          padding: 12px;
 
           div {
             margin-right: 10px;
@@ -39,9 +38,9 @@ body {
         }
       }
 
-      h5 {
+      .channelHeader {
         text-transform: uppercase;
-        margin-left: 16px;
+        margin: 0.5rem 0 0.5rem 0.5rem;
       }
 
       ul {
@@ -92,7 +91,7 @@ body {
       width: 100%;
       background-color: white;
       z-index: 1;
-      border-bottom: 1px solid gray;
+      //border-bottom: 1px solid gray;
       display: flex;
       align-items: center;
 
@@ -106,6 +105,7 @@ body {
 
         label {
           margin-right: 1rem;
+          margin-left: 0.5rem;
         }
       }
     }
