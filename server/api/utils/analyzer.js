@@ -39,9 +39,9 @@ module.exports.analyze = function(analysisType, documents) {
     const results_asPromise = rp(request_params)
         .then((res) => {
             console.log("IN ANALYTICS.JS: Response body: ", res.body)
-            const body_asJson= JSON.parse(res.body);
+            const body_asJson = JSON.parse(res.body);
             //const stringifiedBody = JSON.stringify(parsedBody, null, '  ');
-			//console.log(`IN ANALYTICS.JS: OUTPUT for ${analysisType}: `, body_asJson);
+			console.log(`IN ANALYTICS.JS: OUTPUT for ${analysisType}: `, body_asJson);
             return body_asJson;
         })
         .catch((err) => console.log(err));
