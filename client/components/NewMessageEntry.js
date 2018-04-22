@@ -26,11 +26,10 @@ class NewMessageEntry extends Component {
           name="content"
           value={newMessageEntry}
           onChange={handleChange}
-          placeholder="Say something nice..."
+          placeholder="chat in a different language..."
         />
-        <div class="form-group">
-          <label for="exampleFormControlSelect1" className="translateLabel">Translate</label>
-          <select class="form-control" value={this.state.value} onChange={this.handleChange}>
+        <div className="form-group selectStyle">
+          <select className="form-control" value={this.state.value} onChange={this.handleChange}>
             <option value="en">English</option>
             <option value="es">Spanish</option>
             <option value="fr">French</option>
