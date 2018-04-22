@@ -1,11 +1,17 @@
 # PolyChat
 
-A chatty chat appy app.
+An app that lets you communicate with groups of people who speak different languages
 
 ## Setting up
 
-* `npm install` (or `yarn install`)
-* `npm run seed`
-* `npm start`
+* `npm install` or `yarn`
+* `npm run seed` or `yarn seed`
+* `npm start` or `yarn start`
 
-The `start` command will run both the `webpack` process (in watch mode) to build you client-side javascript files, and the Node process for your server with `nodemon`.
+## Built with
+- Microsoft Cognitive Services API
+- Node
+- React
+- Redux
+- Express
+- Postgre
