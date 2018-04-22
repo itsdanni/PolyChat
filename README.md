@@ -3,11 +3,14 @@
 A chatting app that supports translation of user messages. Users can select a desired language output, and their messages will be translated to that language. Key phrases in the translated message will also be outputted for the user receiving the messages.
 
 Technologies used:
-* NodeJS with React framework for the app
+* NodeJS with:
+    * React
+    * Redux
+    * Express
+    * Postgres
 * Microsoft Cognitive Services
     * Translator Text API for translating between languages
     * Text Analytics API to identify key phrases
-
 
 ## Setting up the project
 
@@ -23,12 +26,13 @@ You probably don't need to follow these guides in depth; at minimum you just nee
 
 # Build and run the project
 
-* `npm install` (or `yarn install`)
-* `npm run seed`
-* `npm start`
+* `npm install` or `yarn`
+* `npm run seed` or `yarn seed`
+* `npm start` or `yarn start`
 
+<<<<<<< HEAD
 The seed command will create and set up the database for the app. You can confirm that the database exists by logging into the Postgres prompt and entering `\list`. You should see the the `stackchat` database in the results..
 
 The `start` command will run both the `webpack` process (in watch mode) to build you client-side javascript files, and the Node process for your server with `nodemon`.
 
-Once the `start` has been fired, go to `localhost:8080` in your browser of choice to use the app:
+Once the `start` has been fired, go to `localhost:8080` in your browser of choice to use the app.
