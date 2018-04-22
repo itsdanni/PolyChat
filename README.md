@@ -14,7 +14,7 @@ Technologies used:
 
 ## Setting up the project
 
-# Install Postgres
+### Install Postgres
 
 We use Postgres for our database management system. If you don't have postgres, please install and set it up.
 
@@ -24,13 +24,12 @@ Here are some guides you can follow:
 
 You probably don't need to follow these guides in depth; at minimum you just need to install Postgres, activate it, and ensure you can login to it.
 
-# Build and run the project
+### Build and run the project
 
 * `npm install` or `yarn`
 * `npm run seed` or `yarn seed`
 * `npm start` or `yarn start`
 
-<<<<<<< HEAD
 The seed command will create and set up the database for the app. You can confirm that the database exists by logging into the Postgres prompt and entering `\list`. You should see the the `stackchat` database in the results..
 
 The `start` command will run both the `webpack` process (in watch mode) to build you client-side javascript files, and the Node process for your server with `nodemon`.
