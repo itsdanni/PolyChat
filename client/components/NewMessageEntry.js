@@ -32,6 +32,7 @@ class NewMessageEntry extends Component {
           <label for="exampleFormControlSelect1" className="translateLabel">Translate</label>
           <select class="form-control" value={this.state.value} onChange={this.handleChange}>
             <option value="en">English</option>
+            <option value="es">Spanish</option>
             <option value="fr">French</option>
             <option value="zh-Hans">Chinese</option>
             <option value="de">German</option>
