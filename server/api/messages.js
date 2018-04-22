@@ -43,9 +43,11 @@ router.post('/', function (req, res, next) {
             const keyPhrases_asString = keyPhrases.documents[0].keyPhrases.join(', ');
             //console.log(`${translatedText}`)
             //console.log(`Key phrases: ${keyPhrases_asString}`);
-            const message = `${translatedText} ---  Key phrases: ${keyPhrases_asString}`;
+            const message = `${translatedText} (KEY PHRASES: ${keyPhrases_asString})`;
             return message;
-        });
+        })
+        // If analytics fails, then we want to just display translated text
+        .catch(err => translatedText);
   })
   .then(messageToSend => {
     let newMessage = { content: messageToSend, name: req.body.name, channelId: req.body.channelId, language: req.body.language }
