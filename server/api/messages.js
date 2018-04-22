@@ -22,11 +22,11 @@ router.post('/', function (req, res, next) {
   })
   .spread(name => {
     author = name
-    return translator.translate(req.body.content, 'fr')
+    return translator.translate(req.body.content, req.body.language)
   })
   .then(translatedText => {
     console.log('request body: ', req.body)
-    let newMessage = { content: translatedText, name: req.body.name, channelId: req.body.channelId }
+    let newMessage = { content: translatedText, name: req.body.name, channelId: req.body.channelId, language: req.body.language }
       const message = Message.build(newMessage);
       message.setAuthor(author, { save: false });
       return message.save()

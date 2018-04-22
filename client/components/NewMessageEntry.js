@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { postMessage, writeMessage } from '../store';
 
-function NewMessageEntry (props) {
+class NewMessageEntry extends Component {
+  constructor(){
+    super()
+    this.state = {
+      value: 'fr'
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-  const { name, newMessageEntry, handleChange, handleSubmit } = props;
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
 
-  return (
-    <form id="new-message-form" onSubmit={evt => handleSubmit(name, newMessageEntry, evt)}>
+  render(){
+    const { name, newMessageEntry, handleChange, handleSubmit } = this.props;
+    return (
+    <form id="new-message-form" onSubmit={evt => handleSubmit(name, newMessageEntry, evt, this.state.value)}>
       <div className="input-group input-group-lg">
         <input
           className="form-control"
@@ -18,19 +29,20 @@ function NewMessageEntry (props) {
           placeholder="Say something nice..."
         />
         <div class="form-group">
-          <label for="exampleFormControlSelect1">translate!</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>English</option>
-            <option>French</option>
-            <option>Chinese</option>
-            <option>German</option>
-            <option>Italian</option>
-            <option>Turkish</option>
+          <label for="exampleFormControlSelect1">Translate</label>
+          <select class="form-control" value={this.state.value} onChange={this.handleChange}>
+            <option value="en">English</option>
+            <option value="fr">French</option>
+            <option value="zh-Hans">Chinese</option>
+            <option value="de">German</option>
+            <option value="it">Italian</option>
+            <option value="tr">Turkish</option>
           </select>
         </div>
       </div>
     </form>
   );
+  }
 }
 
 const mapStateToProps = function (state, ownProps) {
@@ -45,12 +57,12 @@ const mapDispatchToProps = function (dispatch, ownProps) {
     handleChange (evt) {
       dispatch(writeMessage(evt.target.value));
     },
-    handleSubmit (name, content, evt) {
+    handleSubmit (name, content, evt, language) {
       evt.preventDefault();
 
       const { channelId } = ownProps;
 
-      dispatch(postMessage({ name, content, channelId }));
+      dispatch(postMessage({ name, content, channelId, language }));
       dispatch(writeMessage(''));
     }
   };
