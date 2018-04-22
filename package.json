@@ -1,7 +1,7 @@
 {
-  "name": "stackchat",
+  "name": "PolyChat",
   "version": "1.0.0",
-  "description": "A chatty appy chat app",
+  "description": "A chatty appy chat app who speaks different languages",
   "main": "index.js",
   "scripts": {
     "start": "webpack -w & nodemon server --ignore /client --ignore /public",

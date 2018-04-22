@@ -132,6 +132,10 @@ body {
         border-radius: 5px;
       }
 
+      .media-body {
+        padding: 0.5rem;
+      }
+
       & > div {
         display: flex;
         flex-direction: column;
