@@ -4,7 +4,7 @@ const rp = require('request-promise');
 
 module.exports.translate = function(text, targetLanguage) {
 
-    console.log("Text to translate:", text);
+    console.log("IN TRANSLATOR.JS: Text to translate:", text);
 
     // Replace the subscriptionKey string value with your valid subscription key.
     const subscriptionKey = "cfc2b05f41a54fd7a1949ecb69c7ae9a";
@@ -26,8 +26,8 @@ module.exports.translate = function(text, targetLanguage) {
     const translatedText = rp(request_params)
         .then((res) => {
             const strippedText = res.body.replace(/<string(.*?)>/, '').replace(/<\/string>/, '');
-            console.log("Response body: ", res.body)
-            console.log("Translated text: ", strippedText)
+            console.log("IN TRANSLATOR.JS: Response body: ", res.body)
+            console.log("IN TRANSLATOR.JS: Translated text: ", strippedText)
             return strippedText;
         });
 
