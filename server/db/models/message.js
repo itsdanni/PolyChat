@@ -4,7 +4,7 @@ const Author = require('./author');
 
 module.exports = db.define('message', {
   content: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   language: {
