@@ -1,4 +1,5 @@
 modules.export = {
-   translatorTextKey: "translatorTextKey",
-   textAnalyticsKey: "textAnalyticsKey"
+   translatorTextAPIKey: "translatorTextAPIKey",
+   textAnalyticsAPIKey: "textAnalyticsAPIKey",
+   textAnalyticsAPIEndpoint: "textAnalyticsAPIEndpoint"
 };
