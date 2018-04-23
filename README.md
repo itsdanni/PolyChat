@@ -22,15 +22,17 @@ Follow these links to sign up for each:
 * Translator Text API: https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-text-how-to-signup
 * Text Analytics API: https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
 
-Afterwards, please obtain the subscription key for the Translator Text API and the access key for the Text Analytics API:
-* Translator Text API: Subscription key retrieval is documented in the sign up link
-* Text Analytics API: https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
+Afterwards, please obtain the following:
+* Subscription key for the Translator Text API (see the signup link for details)
+* Access key and endpoint the Text Analytics API: https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
+   * For the API endpoint, make sure contains the `https://` prefix and no trailing slash: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`
 
-Open up `config.js` in the root directory of this project.  Replace the placeholders with the keys you've just obtained:
+Open up `config.js` in the root directory of this project.  Replace the placeholders with the keys/endpoint you've just obtained (keep quotes around everything):
 ```
 modules.export = {
-   translatorTextKey: "translatorTextKey",
-   textAnalyticsKey: "textAnalyticsKey"
+   translatorTextAPIKey: "translatorTextAPIKey",
+   textAnalyticsAPIKey: "textAnalyticsAPIKey",
+   textAnalyticsAPIEndpoint: "textAnalyticsAPIEndpoint"
 };
 ```
 
