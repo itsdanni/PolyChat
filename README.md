@@ -14,6 +14,26 @@ Technologies used:
 
 ## Setting up the project
 
+### Setting up Microsoft Cognitive Service API keys
+
+We used Microsoft's Translator Text and Text Analytics APIs for this project. You need to sign up for these services for them to work.
+
+Follow these links to sign up for each:
+* Translator Text API: https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-text-how-to-signup
+* Text Analytics API: https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
+
+Afterwards, please obtain the subscription key for the Translator Text API and the access key for the Text Analytics API:
+* Translator Text API: Subscription key retrieval is documented in the sign up link
+* Text Analytics API: https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
+
+Open up `config.js` in the root directory of this project.  Replace the placeholders with the keys you've just obtained:
+```
+modules.export = {
+   translatorTextKey: "translatorTextKey",
+   textAnalyticsKey: "textAnalyticsKey"
+};
+```
+
 ### Setting up Postgres and create the app database
 
 We use Postgres for our database management system. If you don't have Postgres, please install and set it up as follows.
@@ -33,7 +53,7 @@ https://www.postgresql.org/download/
 7. Exit `psql` :
 `\q` or `Ctrl+D`
 
-### Building and running the app 
+### Building the app 
 
 * `npm install` or `yarn`
 * `npm run seed` or `yarn seed`
