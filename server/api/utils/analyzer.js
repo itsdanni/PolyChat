@@ -2,6 +2,8 @@
 
 const rp = require('request-promise');
 
+const config = require('../../../config');
+
 // analysisType is either:
 // - 'languages' - detects language
 // - 'sentiment' - analyzes sentiment
@@ -13,7 +15,7 @@ const rp = require('request-promise');
 module.exports.analyze = function(analysisType, documents) {
 
 	// Replace the accessKey string value with your valid access key.
-	const accessKey = '49b5f83e7b144136b5b85cb52294ddc0';
+	const accessKey = config.translatorTextAPIKey;
 
 	// Replace or verify the region.
 
@@ -23,7 +25,7 @@ module.exports.analyze = function(analysisType, documents) {
 
 	// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 	// a free trial access key, you should not need to change this region.
-	const endpoint = "https://eastus.api.cognitive.microsoft.com/text/analytics/v2.0";
+	const endpoint = config.translatorTextAPIEndpoint;
 	const path = '/' + analysisType;
 
 	const request_params = {
