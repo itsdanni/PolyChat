@@ -63,6 +63,7 @@ router.post('/', function (req, res, next) {
     .then(message => {
       res.json(message);
     })
+    // Might want to console log the error here in case there's a translation/analytics issue
     .catch(next);
   }
 );
