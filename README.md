@@ -27,13 +27,10 @@ Afterwards, please obtain the following:
 * Access key and endpoint the Text Analytics API: https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
    * For the API endpoint, make sure contains the `https://` prefix and no trailing slash: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`
 
-Open up `config.js` in the root directory of this project.  Replace the placeholders with the keys/endpoint you've just obtained (keep quotes around everything):
+Create a `secrets.js` in the root directory of this project (it's set to be untracked by git) and set add your api keys in the following format. Replace the placeholders with the keys/endpoint you've just obtained (keep quotes around everything):
 ```
-modules.export = {
-   translatorTextAPIKey: "translatorTextAPIKey",
-   textAnalyticsAPIKey: "textAnalyticsAPIKey",
-   textAnalyticsAPIEndpoint: "textAnalyticsAPIEndpoint"
-};
+process.env.TEXT_ANALYTICS_API = "your text analytic api key"
+process.env.TRANSLATOR_TEXT_API = "your text translator api key"
 ```
 
 ### Setting up Postgres and create the app database
@@ -55,7 +52,7 @@ https://www.postgresql.org/download/
 7. Exit `psql` :
 `\q` or `Ctrl+D`
 
-### Building the app 
+### Building the app
 
 * `npm install` or `yarn`
 * `npm run seed` or `yarn seed`
@@ -64,8 +61,8 @@ The `seed` command will generate the database tables for the app and seed them w
 
 ### Running the app
 
-* `npm start` or `yarn start`
+* `npm start-dev` or `yarn start-dev`
 
-The `start` command will run both the `webpack` process (in watch mode) to build you client-side javascript files, and the Node process for your server with `nodemon`.
+The `start-dev` command will run both the `webpack` process (in watch mode) to build you client-side javascript files, and the Node process for your server with `nodemon`.
 
-Once the `start` has been fired, go to `localhost:8080` in your browser of choice to use the app.
+Once the `start-dev` has been fired, go to `localhost:8080` in your browser of choice to use the app.
