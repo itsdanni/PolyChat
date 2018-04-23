@@ -8,10 +8,18 @@ const app = express();
 const server = app.listen(PORT, () => console.log(`Feeling chatty on port ${PORT}`));
 const io = require('socket.io')(server);
 
+module.exports = app;
 // handle sockets
 require('./socket')(io);
-
-module.exports = app;
+/**
+ * In your development environment, you can keep all of your
+ * app's secret API keys in a file called `secrets.js`, in your project
+ * root. This file is included in the .gitignore - it will NOT be tracked
+ * or show up on Github. On your production server, you can add these
+ * keys as environment variables, so that they can still be read by the
+ * Node process on process.env
+ */
+if (process.env.NODE_ENV !== 'production') require('../secrets')
 
 db.sync().then(() => console.log('Database is synced'));
 

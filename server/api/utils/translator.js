@@ -2,14 +2,12 @@
 
 const rp = require('request-promise');
 
-const config = require('../../../config');
-
 module.exports.translate = function(text, targetLanguage) {
 
     console.log("IN TRANSLATOR.JS: Text to translate:", text);
 
     // Replace the subscriptionKey string value with your valid subscription key.
-    const subscriptionKey = config.translatorTextAPIKey;
+    const subscriptionKey = process.env.TRANSLATOR_TEXT_API;
 
     const host = 'api.microsofttranslator.com';
     const path = '/V2/Http.svc/Translate';
