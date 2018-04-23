@@ -59,9 +59,12 @@ https://www.postgresql.org/download/
 
 * `npm install` or `yarn`
 * `npm run seed` or `yarn seed`
-* `npm start` or `yarn start`
 
 The `seed` command will generate the database tables for the app and seed them with initial content. You can also use it to wipe the table contents if your chat app gets too cluttered.
+
+### Running the app
+
+* `npm start` or `yarn start`
 
 The `start` command will run both the `webpack` process (in watch mode) to build you client-side javascript files, and the Node process for your server with `nodemon`.
 
