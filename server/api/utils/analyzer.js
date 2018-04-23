@@ -15,7 +15,7 @@ const config = require('../../../config');
 module.exports.analyze = function(analysisType, documents) {
 
 	// Replace the accessKey string value with your valid access key.
-	const accessKey = config.translatorTextAPIKey;
+	const accessKey = config.textAnalyticsAPIKey;
 
 	// Replace or verify the region.
 
@@ -25,7 +25,7 @@ module.exports.analyze = function(analysisType, documents) {
 
 	// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 	// a free trial access key, you should not need to change this region.
-	const endpoint = config.translatorTextAPIEndpoint;
+	const endpoint = config.textAnalyticsAPIEndpoint;
 	const path = '/' + analysisType;
 
 	const request_params = {
