@@ -47,7 +47,10 @@ router.post('/', function (req, res, next) {
             return message;
         })
         // If analytics fails, then we want to just display translated text
-        .catch(err => translatedText);
+        .catch(err => {
+          console.log(err)
+          return translatedText;
+        });
   })
   .then(messageToSend => {
     let newMessage = { content: messageToSend, name: req.body.name, channelId: req.body.channelId, language: req.body.language }

@@ -1,5 +1,5 @@
-modules.export = {
-   translatorTextAPIKey: "translatorTextAPIKey",
-   textAnalyticsAPIKey: "textAnalyticsAPIKey",
-   textAnalyticsAPIEndpoint: "textAnalyticsAPIEndpoint"
+module.export = {
+  translatorTextAPIKey: "translatorTextAPIKey",
+  textAnalyticsAPIKey: "textAnalyticsAPIKey",
+  textAnalyticsAPIEndpoint: "textAnalyticsAPIEndpoint"
 };
