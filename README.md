@@ -14,6 +14,25 @@ Technologies used:
 
 ## Setting up the project
 
+### Setting up Microsoft Cognitive Service API keys
+
+We used Microsoft's Translator Text and Text Analytics APIs for this project. You need to sign up for these services for them to work.
+
+Follow these links to sign up for each:
+* Translator Text API: https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-text-how-to-signup
+* Text Analytics API: https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
+
+Afterwards, please obtain the following:
+* Subscription key for the Translator Text API (see the signup link for details)
+* Access key and endpoint the Text Analytics API: https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
+   * For the API endpoint, make sure contains the `https://` prefix and no trailing slash: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`
+
+Create a `secrets.js` in the root directory of this project (it's set to be untracked by git) and set add your api keys in the following format. Replace the placeholders with the keys/endpoint you've just obtained (keep quotes around everything):
+```
+process.env.TEXT_ANALYTICS_API = "your text analytic api key"
+process.env.TRANSLATOR_TEXT_API = "your text translator api key"
+```
+
 ### Setting up Postgres and create the app database
 
 We use Postgres for our database management system. If you don't have Postgres, please install and set it up as follows.
@@ -33,14 +52,17 @@ https://www.postgresql.org/download/
 7. Exit `psql` :
 `\q` or `Ctrl+D`
 
-### Building and running the app 
+### Building the app
 
 * `npm install` or `yarn`
 * `npm run seed` or `yarn seed`
-* `npm start` or `yarn start`
 
 The `seed` command will generate the database tables for the app and seed them with initial content. You can also use it to wipe the table contents if your chat app gets too cluttered.
 
-The `start` command will run both the `webpack` process (in watch mode) to build you client-side javascript files, and the Node process for your server with `nodemon`.
+### Running the app
 
-Once the `start` has been fired, go to `localhost:8080` in your browser of choice to use the app.
+* `npm start-dev` or `yarn start-dev`
+
+The `start-dev` command will run both the `webpack` process (in watch mode) to build you client-side javascript files, and the Node process for your server with `nodemon`.
+
+Once the `start-dev` has been fired, go to `localhost:8080` in your browser of choice to use the app.

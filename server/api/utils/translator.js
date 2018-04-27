@@ -7,7 +7,7 @@ module.exports.translate = function(text, targetLanguage) {
     console.log("IN TRANSLATOR.JS: Text to translate:", text);
 
     // Replace the subscriptionKey string value with your valid subscription key.
-    const subscriptionKey = "cfc2b05f41a54fd7a1949ecb69c7ae9a";
+    const subscriptionKey = process.env.TRANSLATOR_TEXT_API;
 
     const host = 'api.microsofttranslator.com';
     const path = '/V2/Http.svc/Translate';

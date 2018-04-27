@@ -4,9 +4,10 @@
   "description": "A chatty appy chat app who speaks different languages",
   "main": "index.js",
   "scripts": {
-    "start": "webpack -w & nodemon server --ignore /client --ignore /public",
-    "start-server": "nodemon server",
-    "build-client": "webpack",
+    "start-server": "NODE_ENV='development' nodemon server","build-client": "webpack",
+    "build-client-watch": "webpack -w",
+    "start": "node server",
+    "start-dev": "yarn start-server && yarn build-client-watch",
     "seed": "node seed.js"
   },
   "author": "",
